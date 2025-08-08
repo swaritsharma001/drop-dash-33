@@ -94,7 +94,7 @@ const Home = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <Suspense fallback={<ProductSkeleton />}>
-                    <ProductCard {...product} />
+                    <ProductCard {...product} showAddToCart={false} />
                   </Suspense>
                 </div>
               ))}
@@ -134,7 +134,7 @@ const Home = () => {
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <Suspense fallback={<ProductSkeleton />}>
-                    <ProductCard {...product} />
+                    <ProductCard {...product} showAddToCart={false} />
                   </Suspense>
                 </div>
               ))}

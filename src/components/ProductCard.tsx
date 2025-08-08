@@ -13,6 +13,7 @@ interface ProductCardProps {
   reviews: number;
   image: string;
   discount?: number;
+  showAddToCart?: boolean;
 }
 
 const ProductCard = ({ 
@@ -23,7 +24,8 @@ const ProductCard = ({
   rating, 
   reviews, 
   image, 
-  discount 
+  discount,
+  showAddToCart = true,
 }: ProductCardProps) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const navigate = useNavigate();
@@ -98,15 +100,17 @@ const ProductCard = ({
         </div>
       </CardContent>
 
-      <CardFooter className="p-3 md:p-4 pt-0">
-        <Button 
-          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium transition-all duration-200 group-hover:shadow-md h-8 md:h-10 text-xs md:text-sm"
-          onClick={handleAddToCart}
-        >
-          <ShoppingCart className="h-3 w-3 md:h-4 md:w-4 mr-1.5 md:mr-2" />
-          Add to Cart
-        </Button>
-      </CardFooter>
+      {showAddToCart && (
+        <CardFooter className="p-3 md:p-4 pt-0">
+          <Button 
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium transition-all duration-200 group-hover:shadow-md h-8 md:h-10 text-xs md:text-sm"
+            onClick={handleAddToCart}
+          >
+            <ShoppingCart className="h-3 w-3 md:h-4 md:w-4 mr-1.5 md:mr-2" />
+            Add to Cart
+          </Button>
+        </CardFooter>
+      )}
     </Card>
   );
 };
