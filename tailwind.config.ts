@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ["Inter", "system-ui", "sans-serif"],
-				display: ["Playfair Display", "serif"],
+				sans: ["Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", "system-ui", "sans-serif"],
+				display: ["Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", "system-ui", "sans-serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
