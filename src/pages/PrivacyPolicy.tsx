@@ -124,9 +124,9 @@ const PrivacyPolicy = () => {
                     If you have any questions about this Privacy Policy, please contact us at:
                   </p>
                   <div className="mt-3 p-4 bg-secondary/30 rounded-lg">
-                    <p className="text-foreground">Email: privacy@eliteshop.com</p>
-                    <p className="text-foreground">Phone: +1 (555) 123-4567</p>
-                    <p className="text-foreground">Address: 123 Commerce St, New York, NY 10001</p>
+                    <p className="text-foreground">Email: support@lumifashion.shop</p>
+                    <p className="text-foreground">Phone: +91 83404 87605</p>
+                    <p className="text-foreground">Address: Mumbai, India</p>
                   </div>
                 </section>
               </div>

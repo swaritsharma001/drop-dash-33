@@ -195,9 +195,9 @@ const RefundPolicy = () => {
                     If you have questions about returns or need assistance, our customer service team is here to help:
                   </p>
                   <div className="p-4 bg-secondary/30 rounded-lg">
-                    <p className="text-foreground">Email: returns@eliteshop.com</p>
-                    <p className="text-foreground">Phone: +1 (555) 123-4567</p>
-                    <p className="text-foreground">Hours: Monday-Friday, 9 AM - 6 PM EST</p>
+                    <p className="text-foreground">Email: support@lumifashion.shop</p>
+                    <p className="text-foreground">Phone: +91 83404 87605</p>
+                    <p className="text-foreground">Hours: Monday-Friday, 9 AM - 6 PM IST</p>
                   </div>
                 </section>
               </div>
