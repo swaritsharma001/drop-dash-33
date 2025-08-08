@@ -72,7 +72,7 @@ const ProductCard = ({
       </div>
 
       <CardContent className="p-3 md:p-4 space-y-2 md:space-y-3 flex-1 flex flex-col">
-        <h3 className="font-medium text-card-foreground text-xs md:text-sm leading-4 md:leading-5 line-clamp-2 group-hover:text-primary transition-colors duration-200 min-h-[2rem] md:min-h-[2.5rem]">
+        <h3 className="font-medium text-card-foreground text-xs md:text-sm leading-4 md:leading-5 line-clamp-2 group-hover:text-accent transition-colors duration-200 min-h-[2rem] md:min-h-[2.5rem]">
           {title}
         </h3>
         
