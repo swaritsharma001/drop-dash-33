@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const navigate = useNavigate();
+  const formattedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -33,7 +34,7 @@ const PrivacyPolicy = () => {
             <CardHeader>
               <CardTitle className="text-3xl font-bold">Privacy Policy</CardTitle>
               <p className="text-muted-foreground">
-                Last updated: January 1, 2024
+                Last updated: {formattedDate}
               </p>
             </CardHeader>
             <CardContent className="prose prose-slate max-w-none">

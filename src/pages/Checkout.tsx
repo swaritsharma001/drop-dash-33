@@ -18,6 +18,7 @@ import {
   CheckCircle 
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 // Mock cart data for checkout
 const cartItems = [
@@ -261,6 +262,13 @@ const Checkout = () => {
                           <span>Credit/Debit Card</span>
                         </Label>
                       </div>
+                      <div className="flex items-center space-x-2 p-4 border border-border rounded-lg">
+                        <RadioGroupItem value="cod" id="cod" />
+                        <Label htmlFor="cod" className="flex items-center space-x-2 cursor-pointer">
+                          <span>🚚</span>
+                          <span>Cash on Delivery (COD) — Rs 10 online initiation required</span>
+                        </Label>
+                      </div>
                       <div className="flex items-center space-x-2 p-4 border border-border rounded-lg opacity-50">
                         <RadioGroupItem value="paypal" id="paypal" disabled />
                         <Label htmlFor="paypal" className="flex items-center space-x-2 cursor-pointer">
@@ -269,6 +277,15 @@ const Checkout = () => {
                         </Label>
                       </div>
                     </RadioGroup>
+
+                    {paymentMethod === "cod" && (
+                      <Alert>
+                        <AlertTitle>Cash on Delivery (COD)</AlertTitle>
+                        <AlertDescription>
+                          COD is available. To initiate your order, a small online prepayment of Rs 10 is required.
+                        </AlertDescription>
+                      </Alert>
+                    )}
 
                     {paymentMethod === "card" && (
                       <div className="space-y-4">

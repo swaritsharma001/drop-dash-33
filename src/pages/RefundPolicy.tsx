@@ -3,10 +3,12 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ArrowLeft, CheckCircle, Clock, XCircle } from "lucide-react";
 
 const RefundPolicy = () => {
   const navigate = useNavigate();
+  const formattedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -33,10 +35,16 @@ const RefundPolicy = () => {
             <CardHeader>
               <CardTitle className="text-3xl font-bold">Refund Policy</CardTitle>
               <p className="text-muted-foreground">
-                Last updated: January 1, 2024
+                Last updated: {formattedDate}
               </p>
             </CardHeader>
             <CardContent className="prose prose-slate max-w-none">
+              <Alert className="mb-6">
+                <AlertTitle>Important Update</AlertTitle>
+                <AlertDescription>
+                  Currently, returns are not available. Cash on Delivery (COD) is available at checkout; however, you must pay Rs 10 online to initiate the order.
+                </AlertDescription>
+              </Alert>
               <div className="space-y-6">
                 <section>
                   <h2 className="text-xl font-semibold mb-3">30-Day Return Policy</h2>
