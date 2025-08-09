@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ["Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", "system-ui", "sans-serif"],
-				display: ["Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS", "system-ui", "sans-serif"],
+				sans: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
+				display: ["Plus Jakarta Sans", "system-ui", "sans-serif"],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
