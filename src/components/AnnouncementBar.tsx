@@ -3,16 +3,11 @@ import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carouse
 import Autoplay from "embla-carousel-autoplay";
 import { Sparkles, Megaphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const messages = [
-  "Use code S23 to get 23% OFF on all orders!",
-  "Free shipping on orders above ₹1,999",
-  "New arrivals dropping weekly — stay tuned!",
-  "OK FLIPKART COPY"
-];
+import { useAdminData } from "@/contexts/AdminDataContext";
 
 const AnnouncementBar = () => {
   const [dismissed, setDismissed] = useState<boolean>(false);
+  const { announcements } = useAdminData();
 
   useEffect(() => {
     const wasDismissed = localStorage.getItem("announcement:dismissed") === "1";
@@ -37,7 +32,7 @@ const AnnouncementBar = () => {
             className="w-full max-w-3xl"
           >
             <CarouselContent>
-              {messages.map((msg, i) => (
+              {announcements.map((msg, i) => (
                 <CarouselItem key={i} className="basis-full">
                   <p className="text-center text-xs md:text-sm font-medium tracking-wide">
                     <Sparkles className="inline h-3 w-3 md:h-3.5 md:w-3.5 mr-1 align-[-2px]" aria-hidden="true" />

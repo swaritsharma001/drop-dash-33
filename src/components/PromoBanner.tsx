@@ -3,38 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { useAdminData } from "@/contexts/AdminDataContext";
 
-const banners = [
-  {
-    id: 1,
-    title: "Samsung Galaxy Watch7",
-    subtitle: "Challenge your past for a better tomorrow",
-    price: "From ₹15,473",
-    badge: "FREEDOM SALE LIVE NOW",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200&h=600&fit=crop",
-    bgColor: "from-green-400 to-blue-500"
-  },
-  {
-    id: 2,
-    title: "iPhone 15 Pro",
-    subtitle: "Titanium. So strong. So light. So Pro.",
-    price: "From ₹1,34,900",
-    badge: "NEW ARRIVAL",
-    image: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=1200&h=600&fit=crop",
-    bgColor: "from-purple-400 to-pink-500"
-  },
-  {
-    id: 3,
-    title: "MacBook Air M3",
-    subtitle: "Supercharged by M3 chip",
-    price: "From ₹1,14,900",
-    badge: "BEST SELLER",
-    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=1200&h=600&fit=crop",
-    bgColor: "from-blue-400 to-purple-600"
-  }
-];
 
 const PromoBanner = () => {
+  const { banners } = useAdminData();
   return (
     <div className="relative">
       <Carousel
