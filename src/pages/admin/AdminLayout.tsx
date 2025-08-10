@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BarChart3, Megaphone, Package, Sliders, Users, Truck } from "lucide-react";
+import { BarChart3, Megaphone, Package, Sliders, Users, Truck, BadgePercent } from "lucide-react";
 
 const linkCls = ({ isActive }: { isActive: boolean }) =>
   `flex items-center gap-2 px-3 py-2 rounded-md text-sm transition-colors ${
@@ -36,6 +36,9 @@ const AdminLayout: React.FC = () => {
             </NavLink>
             <NavLink to="/admin/announcements" className={linkCls}>
               <Megaphone className="h-4 w-4" /> Announcements
+            </NavLink>
+            <NavLink to="/admin/coupons" className={linkCls}>
+              <BadgePercent className="h-4 w-4" /> Coupons
             </NavLink>
             <NavLink to="/admin/slider" className={linkCls}>
               <Sliders className="h-4 w-4" /> Slider

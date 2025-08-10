@@ -5,21 +5,30 @@ import { Button } from "@/components/ui/button";
 import { useAdminData } from "@/contexts/AdminDataContext";
 
 const AdminSlider: React.FC = () => {
-  const { banners, updateBanner } = useAdminData();
+  const { banners, updateBanner, addBanner, removeBanner } = useAdminData();
 
   React.useEffect(() => { document.title = "Admin | Slider"; }, []);
 
+  const addNew = () => {
+    const nextId = banners.length ? Math.max(...banners.map((x) => x.id)) + 1 : 1;
+    addBanner({ id: nextId, title: "", subtitle: "", price: "", badge: "", image: "", bgColor: "" });
+  };
+
   return (
     <>
-      <section>
-        <h1 className="text-2xl font-bold mb-2">Slider</h1>
-        <p className="text-muted-foreground">Manage homepage slider content</p>
+      <section className="flex items-end justify-between">
+        <div>
+          <h1 className="text-2xl font-bold mb-2">Slider</h1>
+          <p className="text-muted-foreground">Manage homepage slider content</p>
+        </div>
+        <Button onClick={addNew}>Add Slide</Button>
       </section>
 
       {banners.map((b) => (
         <Card key={b.id} className="mb-4">
-          <CardHeader>
+          <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle>Slide #{b.id}</CardTitle>
+            <Button size="sm" variant="destructive" onClick={() => removeBanner(b.id)}>Delete</Button>
           </CardHeader>
           <CardContent className="grid md:grid-cols-2 gap-4">
             <div>

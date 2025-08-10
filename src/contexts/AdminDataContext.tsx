@@ -22,10 +22,22 @@ export type Banner = {
   bgColor?: string;
 };
 
+export type Coupon = {
+  id: string;
+  code: string;
+  type: "percent" | "fixed";
+  amount: number;
+  startDate?: string; // ISO
+  endDate?: string; // ISO
+  usageLimit?: number;
+  active: boolean;
+};
+
 export type AdminData = {
   products: Product[];
   announcements: string[];
   banners: Banner[];
+  coupons: Coupon[];
   users: AdminUser[];
   orders: AdminOrder[];
 };
@@ -40,7 +52,13 @@ type Ctx = AdminData & {
   updateAnnouncement: (index: number, msg: string) => void;
   removeAnnouncement: (index: number) => void;
   // banners
+  addBanner: (b: Banner) => void;
   updateBanner: (id: number, patch: Partial<Banner>) => void;
+  removeBanner: (id: number) => void;
+  // coupons
+  addCoupon: (c: Coupon) => void;
+  updateCoupon: (id: string, patch: Partial<Coupon>) => void;
+  deleteCoupon: (id: string) => void;
   // users
   updateUserRole: (id: string, role: UserRole) => void;
   // orders
@@ -90,6 +108,8 @@ const defaultBanners: Banner[] = [
   },
 ];
 
+const defaultCoupons: Coupon[] = [];
+
 const defaultUsers: AdminUser[] = [
   { id: "u1", name: "Admin User", email: "admin@example.com", role: "admin" },
   { id: "u2", name: "Manager User", email: "manager@example.com", role: "manager" },
@@ -124,6 +144,7 @@ export const AdminDataProvider: React.FC<{ children: React.ReactNode }> = ({ chi
       products: seedProducts,
       announcements: defaultAnnouncements,
       banners: defaultBanners,
+      coupons: defaultCoupons,
       users: defaultUsers,
       orders: defaultOrders,
     };
@@ -158,11 +179,26 @@ export const AdminDataProvider: React.FC<{ children: React.ReactNode }> = ({ chi
           announcements: s.announcements.filter((_, i) => i !== index),
         })),
 
+      addBanner: (b) =>
+        setState((s) => ({ ...s, banners: [...s.banners, b] })),
+
       updateBanner: (id, patch) =>
         setState((s) => ({
           ...s,
           banners: s.banners.map((b) => (b.id === id ? { ...b, ...patch } : b)),
         })),
+
+      removeBanner: (id) =>
+        setState((s) => ({ ...s, banners: s.banners.filter((b) => b.id !== id) })),
+
+      addCoupon: (c) => setState((s) => ({ ...s, coupons: [...s.coupons, c] })),
+      updateCoupon: (id, patch) =>
+        setState((s) => ({
+          ...s,
+          coupons: s.coupons.map((c) => (c.id === id ? { ...c, ...patch } : c)),
+        })),
+      deleteCoupon: (id) =>
+        setState((s) => ({ ...s, coupons: s.coupons.filter((c) => c.id !== id) })),
 
       updateUserRole: (id, role) =>
         setState((s) => ({

@@ -31,6 +31,7 @@ const AdminAnnouncements = lazy(() => import("./pages/admin/AdminAnnouncements")
 const AdminUsers = lazy(() => import("./pages/admin/AdminUsers"));
 const AdminOrders = lazy(() => import("./pages/admin/AdminOrders"));
 const AdminSlider = lazy(() => import("./pages/admin/AdminSlider"));
+const AdminCoupons = lazy(() => import("./pages/admin/AdminCoupons"));
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -66,6 +67,7 @@ const App = () => (
                   <Route index element={<AdminDashboard />} />
                   <Route path="products" element={<AdminProducts />} />
                   <Route path="announcements" element={<AdminAnnouncements />} />
+                  <Route path="coupons" element={<AdminCoupons />} />
                   <Route path="slider" element={<AdminSlider />} />
                   <Route path="users" element={<AdminUsers />} />
                   <Route path="orders" element={<AdminOrders />} />
